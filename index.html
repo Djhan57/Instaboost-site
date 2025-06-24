@@ -1,209 +1,101 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>InstaBoost - Croissance Instagram</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accueil - InstaBoost</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
     }
-    header {
-      background-color: #1f1f1f;
-      padding: 20px;
+    header, footer {
+      background: #1f1f1f;
       color: white;
       text-align: center;
+      padding: 20px;
     }
     nav a {
+      margin: 0 10px;
       color: white;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: 300;
-      display: inline-block;
     }
     .hero {
-      background: url('https://images.unsplash.com/photo-1706781273757-4ed613b26e9b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center;
-      background-size: cover;
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
+      padding: 60px 20px;
+      background: #ff0055;
       color: white;
-      padding: 0 20px;
     }
-    .hero h1 {
-      font-size: 36px;
+    .packs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    .pack {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .pack h3 {
+      margin-top: 0;
+    }
+    .pack p {
+      margin-bottom: 10px;
     }
     .btn {
-      background-color: #ff0055;
+      background: #ff0055;
       color: white;
-      padding: 12px 24px;
-      border: none;
+      padding: 10px 15px;
+      text-decoration: none;
       border-radius: 5px;
-      margin-top: 20px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
+      display: inline-block;
     }
     .btn:hover {
-      background-color: #e6004d;
-    }
-    .services, .form-section {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    .services h2, .form-section h2 {
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 280px;
-    }
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    input[type="submit"] {
-      background-color: #ff0055;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    input[type="submit"]:hover {
-      background-color: #e6004d;
-    }
-    footer {
-      background-color: #1f1f1f;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 24px;
-      }
-      .cards {
-        flex-direction: column;
-        align-items: center;
-      }
+      background: #e6004d;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>InstaBoost</h1>
     <nav>
       <a href="index.html">Accueil</a>
-      <a href="#services">Services</a>
-      <a href="#commande">Commander</a>
       <a href="produit.html">Produit</a>
       <a href="panier.html">Panier</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div>
-      <h1>Boostez votre visibilité sur Instagram</h1>
-      <a href="#commande"><button class="btn">Voir nos offres</button></a>
+  <div class="hero">
+    <h2>Boostez votre présence sur Instagram</h2>
+    <p>Obtenez des abonnés réels et actifs en quelques clics.</p>
+  </div>
+
+  <section class="packs">
+    <div class="pack">
+      <h3>Pack Démarrage</h3>
+      <p>500 abonnés - 9,99€</p>
+      <a class="btn" href="produit.html?pack=starter">Commander</a>
     </div>
-  </section>
-
-  <section id="services" class="services">
-    <h2>Nos Packs</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Pack Démarrage</h3>
-        <p>500 abonnés - 9,99€</p>
-        <a href="produit.html?pack=starter"><button class="btn">Détails</button></a>
-      </div>
-      <div class="card">
-        <h3>Pack Pro</h3>
-        <p>1000 abonnés - 17,99€</p>
-        <a href="produit.html?pack=pro"><button class="btn">Détails</button></a>
-      </div>
-      <div class="card">
-        <h3>Pack Elite</h3>
-        <p>3000 abonnés - 39,99€</p>
-        <a href="produit.html?pack=elite"><button class="btn">Détails</button></a>
-      </div>
+    <div class="pack">
+      <h3>Pack Pro</h3>
+      <p>1000 abonnés - 17,99€</p>
+      <a class="btn" href="produit.html?pack=pro">Commander</a>
     </div>
-  </section>
-
-  <section id="commande" class="form-section">
-    <h2>Passer une commande</h2>
-    <form onsubmit="return validateForm()">
-      <label for="username">Nom d'utilisateur Instagram :</label>
-      <input type="text" id="username" name="username" required>
-
-      <label for="pack">Choisir un pack :</label>
-      <select id="pack" name="pack" required>
-        <option value="">-- Choisissez une option --</option>
-        <option value="starter">Pack Démarrage - 9,99€</option>
-        <option value="pro">Pack Pro - 17,99€</option>
-        <option value="elite">Pack Elite - 39,99€</option>
-      </select>
-
-      <label for="email">Adresse Email :</label>
-      <input type="email" id="email" name="email" required>
-
-      <input type="submit" value="Commander">
-    </form>
+    <div class="pack">
+      <h3>Pack Elite</h3>
+      <p>3000 abonnés - 39,99€</p>
+      <a class="btn" href="produit.html?pack=elite">Commander</a>
+    </div>
   </section>
 
   <footer>
     © 2025 InstaBoost. Tous droits réservés.
   </footer>
-
-  <script>
-    function validateForm() {
-      const username = document.getElementById('username').value.trim();
-      const pack = document.getElementById('pack').value;
-      const email = document.getElementById('email').value.trim();
-
-      if (!username || !pack || !email) {
-        alert("Veuillez remplir tous les champs.");
-        return false;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert("Veuillez entrer une adresse email valide.");
-        return false;
-      }
-
-      alert("Commande envoyée avec succès !");
-      return true;
-    }
-  </script>
 </body>
 </html>
