@@ -55,6 +55,15 @@
       elite: { title: 'Pack Elite', price: 39.99 }
     };
 
+    // Pre-select pack based on URL parameter, if present
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const pack = params.get('pack');
+      if (pack && packDetails[pack]) {
+        document.getElementById('pack').value = pack;
+      }
+    });
+
     document.getElementById('order-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const pack = document.getElementById('pack').value;
