@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Produit - InstaBoost</title>
+  <title>Product - InstaBoost</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
@@ -23,36 +23,36 @@
   <header>
     <h1>InstaBoost</h1>
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="produit.html">Produit</a>
-      <a href="panier.html">Panier</a>
+      <a href="index.html">Home</a>
+      <a href="produit.html">Product</a>
+      <a href="panier.html">Cart</a>
     </nav>
   </header>
   <div class="container">
-    <h2>Commander un Pack</h2>
+    <h2>Order a Pack</h2>
     <form id="order-form">
-      <label for="pack">Choisissez un pack :</label>
+      <label for="pack">Choose a pack:</label>
       <select id="pack" required>
-        <option value="starter" data-price="9.99">Pack Démarrage - 500 abonnés (9,99€)</option>
-        <option value="pro" data-price="17.99">Pack Pro - 1000 abonnés (17,99€)</option>
-        <option value="elite" data-price="39.99">Pack Elite - 3000 abonnés (39,99€)</option>
+        <option value="starter" data-price="9.99">Starter Pack - 500 followers (€9.99)</option>
+        <option value="pro" data-price="17.99">Pro Pack - 1000 followers (€17.99)</option>
+        <option value="elite" data-price="39.99">Elite Pack - 3000 followers (€39.99)</option>
       </select>
-      <label for="username">Nom d'utilisateur Instagram :</label>
+      <label for="username">Instagram username:</label>
       <input type="text" id="username" required>
-      <label for="email">Adresse email :</label>
+      <label for="email">Email address:</label>
       <input type="email" id="email" required>
-      <button class="btn" type="submit">Ajouter au panier</button>
+      <button class="btn" type="submit">Add to cart</button>
       <div class="message" id="confirmation"></div>
     </form>
   </div>
   <footer>
-    © 2025 InstaBoost. Tous droits réservés.
+    © 2025 InstaBoost. All rights reserved.
   </footer>
   <script>
     const packDetails = {
-      starter: { title: 'Pack Démarrage', price: 9.99 },
-      pro: { title: 'Pack Pro', price: 17.99 },
-      elite: { title: 'Pack Elite', price: 39.99 }
+      starter: { title: 'Starter Pack', price: 9.99 },
+      pro: { title: 'Pro Pack', price: 17.99 },
+      elite: { title: 'Elite Pack', price: 39.99 }
     };
 
     // Pre-select pack based on URL parameter, if present
@@ -79,7 +79,7 @@
       });
 
       localStorage.setItem('cart', JSON.stringify(cart));
-      document.getElementById('confirmation').textContent = "Ajouté au panier !";
+      document.getElementById('confirmation').textContent = "Added to cart!";
       document.getElementById('order-form').reset();
     });
   </script>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Panier - InstaBoost</title>
+  <title>Cart - InstaBoost</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
@@ -22,32 +22,32 @@
   <header>
     <h1>InstaBoost</h1>
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="produit.html">Produit</a>
-      <a href="panier.html">Panier</a>
+      <a href="index.html">Home</a>
+      <a href="produit.html">Product</a>
+      <a href="panier.html">Cart</a>
     </nav>
   </header>
   <div class="container">
-    <h2>Votre Panier</h2>
+    <h2>Your Cart</h2>
     <table id="cart-table">
       <thead>
         <tr>
           <th>Pack</th>
-          <th>Utilisateur</th>
+          <th>User</th>
           <th>Email</th>
-          <th>Prix</th>
+          <th>Price</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
-    <p class="total" id="total-price">Total : 0,00€</p>
-    <button class="btn" onclick="clearCart()">Vider le panier</button>
-    <!-- Conteneur pour le bouton PayPal -->
+    <p class="total" id="total-price">Total: €0.00</p>
+    <button class="btn" onclick="clearCart()">Empty cart</button>
+    <!-- Container for the PayPal button -->
     <div id="paypal-button-container" style="margin-top:20px;"></div>
   </div>
   <footer>
-    © 2025 InstaBoost. Tous droits réservés.
+    © 2025 InstaBoost. All rights reserved.
   </footer>
 
   <!-- SDK PayPal -->
@@ -66,14 +66,14 @@
           <td>${item.title}</td>
           <td>${item.username}</td>
           <td>${item.email}</td>
-          <td>${item.price.toFixed(2)}€</td>
-          <td><button onclick="removeItem(${index})">Supprimer</button></td>
+          <td>€${item.price.toFixed(2)}</td>
+          <td><button onclick="removeItem(${index})">Remove</button></td>
         `;
         total += item.price;
         tbody.appendChild(row);
       });
 
-      document.getElementById('total-price').textContent = `Total : ${total.toFixed(2)}€`;
+      document.getElementById('total-price').textContent = `Total: €${total.toFixed(2)}`;
     }
 
     function removeItem(index) {
@@ -84,7 +84,7 @@
     }
 
     function clearCart() {
-      if (confirm('Êtes-vous sûr de vouloir vider le panier ?')) {
+      if (confirm('Are you sure you want to empty the cart?')) {
         localStorage.removeItem('cart');
         loadCart();
       }
@@ -107,7 +107,7 @@
         },
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
-            alert('Paiement effectué par ' + details.payer.name.given_name);
+            alert('Payment completed by ' + details.payer.name.given_name);
             clearCart();
           });
         }
