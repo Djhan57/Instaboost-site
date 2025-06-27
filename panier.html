@@ -43,10 +43,15 @@
     </table>
     <p class="total" id="total-price">Total : 0,00€</p>
     <button class="btn" onclick="clearCart()">Vider le panier</button>
+    <!-- Conteneur pour le bouton PayPal -->
+    <div id="paypal-button-container" style="margin-top:20px;"></div>
   </div>
   <footer>
     © 2025 InstaBoost. Tous droits réservés.
   </footer>
+
+  <!-- SDK PayPal -->
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
 
   <script>
     function loadCart() {
@@ -85,7 +90,34 @@
       }
     }
 
-    window.onload = loadCart;
+    function initPaypalButton() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      if (total <= 0 || !window.paypal) return;
+
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: total.toFixed(2)
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Paiement effectué par ' + details.payer.name.given_name);
+            clearCart();
+          });
+        }
+      }).render('#paypal-button-container');
+    }
+
+    window.onload = function() {
+      loadCart();
+      initPaypalButton();
+    };
   </script>
 </body>
 </html>
